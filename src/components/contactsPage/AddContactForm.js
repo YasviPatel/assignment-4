@@ -37,22 +37,6 @@ export async function action({ request }) {
         designation:data.get("designation")
     };
   
-    let url = 'https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/:';
-  
-    // if (method === 'POST') {
-    //   const eventId = Math.random();
-    //   url = 'https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/:' + eventId;
-    // }
-    console.log(url);
-  
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw json({ message: 'Could not save event.' }, { status: 500 });
-    }
-    const responseData=await response.json();
-    for(const key in responseData){
-       
-    }
   
     return redirect('/');
   }
