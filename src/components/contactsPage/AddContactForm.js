@@ -39,27 +39,19 @@ export async function action({ request }) {
   
     let url = 'https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/:';
   
-    if (method === 'POST') {
-      const eventId = Math.random();
-      url = 'https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/:' + eventId;
-    }
+    // if (method === 'POST') {
+    //   const eventId = Math.random();
+    //   url = 'https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/:' + eventId;
+    // }
     console.log(url);
   
-    const response = await fetch(url, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(eventData),
-    });
-  
-    if (response.status === 422) {
-      return response;
-    }
-    console.log(response);
-  
+    const response = await fetch(url);
     if (!response.ok) {
       throw json({ message: 'Could not save event.' }, { status: 500 });
+    }
+    const responseData=await response.json();
+    for(const key in responseData){
+       
     }
   
     return redirect('/');
