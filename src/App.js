@@ -1,7 +1,7 @@
 
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Contacts from './components/contactsPage/Contacts';
+import Contacts,{loader as loaderForContacts} from './components/contactsPage/Contacts';
 import RootLayout from './components/roootElement/Root';
 import ErrorPage from './components/error/ErrorPage';
 import AddContactForm,{action as formAction} from './components/contactsPage/AddContactForm';
@@ -13,7 +13,7 @@ const router=createBrowserRouter([
   element:<RootLayout/>,
   errorElement:<ErrorPage/>,
   children:[
-    {index:true,element:<Contacts/>},  //path:''
+    {index:true,element:<Contacts/>,loader:loaderForContacts},  //path:''
     {path:'addContactForm',element:<AddContactForm/>,action:formAction}
     
   ]

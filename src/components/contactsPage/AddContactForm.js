@@ -32,11 +32,20 @@ export async function action({ request }) {
         name:data.get("name"),
         email:data.get("email"),
         phone:data.get("phone"),
-        comapny:data.get("comapny"),
+        company:data.get("company"),
         address:data.get("address"),
         designation:data.get("designation")
     };
   
+    fetch("https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json",{
+      method:"POST",
+      body:JSON.stringify(eventData),
+      headers:{
+        'Content-Type':'application/json'
+      }
+    }).then(response=>{
+       console.log(response);
+    })
   
     return redirect('/');
   }

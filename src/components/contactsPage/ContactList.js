@@ -1,10 +1,17 @@
-import Contact from "./Contact";
+// import Contact from "./Contact";
 
-function ContactList(){
+function ContactList({contacts}){
   return(
   <>
-    Hello from ContactList
-    <Contact/>
+    <div>
+      <ul>
+        {contacts.map((contact)=>(
+          <li key={contact.id}>
+            <p>{contact.name}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
   </>
   )
 }

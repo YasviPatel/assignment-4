@@ -1,9 +1,14 @@
+
 function Contact(){
+  
   return(
     <>
-      Hello from contact
+       <div>
+            Hello from contact
+       </div>
     </>
   )
 }
 
 export default Contact;
+
