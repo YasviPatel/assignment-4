@@ -1,9 +1,9 @@
 import { Form,redirect,json } from "react-router-dom";
 import Contacts from "./Contacts";
-function AddContactForm(){
+function AddContactForm({method,contactData}){
     return(
          <Form method="post" action="/AddContactForm">
-             Enter your name:<input type={"text"} name="name"/>
+             Enter your name:<input type={"text"} name="name" defaultValue={contactData ? contactData.name : ""}/>
              <br/>
              Email:<input type={"email"} name="email"/>
              <br/>
@@ -27,19 +27,24 @@ export async function action({ request }) {
     const method = request.method;
     console.log(method);
     const data = await request.formData();
+    const myId = new Date().toISOString();
   
-    const eventData = {
+    const contactData = {
         name:data.get("name"),
         email:data.get("email"),
         phone:data.get("phone"),
         company:data.get("company"),
         address:data.get("address"),
-        designation:data.get("designation")
+        designation:data.get("designation"),
+        id:myId
     };
+    console.log(contactData);
+    console.log(myId);
+
   
-    fetch("https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json",{
-      method:"POST",
-      body:JSON.stringify(eventData),
+    const response=fetch("https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json",{
+      method:method,
+      body:JSON.stringify(contactData),
       headers:{
         'Content-Type':'application/json'
       }

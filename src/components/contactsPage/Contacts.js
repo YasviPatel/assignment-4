@@ -1,47 +1,96 @@
-import { Suspense } from "react";
-import { useNavigate,json,defer, useLoaderData,Await } from "react-router-dom";
-import ContactList from "./ContactList";
 
-function Contacts(){
+import { useNavigate,json,defer, useLoaderData,Link } from "react-router-dom";
+import ContactList from "./ContactList"
+const Contacts=()=>{
  
-
-  const contacts=useLoaderData();
+  const contactData=useLoaderData();
   const navigate=useNavigate();
+  console.log(contactData);
 
   function buttonClickHandler(){
       navigate('addContactForm');
   }
   return (
+    
     <>
-    <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
-      <Await resolve={contacts}>
-        {(loadedContacts) => <ContactList events={loadedContacts} />}
-      </Await>
-    </Suspense>
+  
+      <ul>
+        {contactData.map((contact)=>(
+            <li key={contact.id}>
+               Name:{contact.name}
+               Company Name:{contact.company}
+               Designation:{contact.designation}
+               <Link to={`/editEventForm/${contact.id}`}>Edit</Link>
+            </li>
+        ))}
+        
+      </ul>
       <button onClick={buttonClickHandler}>Add contact</button>
+      <ContactList/>
     </>
   )
 
   }
 export default Contacts;
+// async function loadContact(id) {
+//   const response = await fetch('' + id);
 
-async function loadContacts(){
+//   if (!response.ok) {
+//     throw json(
+//       { message: 'Could not fetch details for selected event.' },
+//       {
+//         status: 500,
+//       }
+//     );
+//   } else {
+//     const resData = await response.json();
+//     return resData.event;
+//   }
+// }
 
-  const response=await fetch("https://console.firebase.google.com/project/assignment-4-15b74/database/assignment-4-15b74-default-rtdb/data/~2F/contacts.json")
+export async function loader() {
+  const response = await fetch('https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json',{
+    method:"GET",
+    headers:{
+      'Content-Type':'application/json'
+    }
+  })
+    
+  console.log(response);
+
   if (!response.ok) {
+    // return { isError: true, message: 'Could not fetch events.' };
+    // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
+    //   status: 500,
+    // });
     throw json(
-      { message: 'Could not fetch contacts.' },
+      { message: 'Could not fetch events.' },
       {
         status: 500,
       }
     );
   } else {
+    console.log(response.json);
     const resData = await response.json();
-    return resData.contacts;
+    console.log(resData);
+    let contactData=[];
+    for(const key in resData){
+       contactData.push({
+        id:key,
+        name:resData[key].name,
+        company:resData[key].company,
+        designation:resData[key].designation,
+        phone:resData[key].phone,
+        address:resData[key].address,
+        email:resData[key].email,
+        contactId:resData[key].id
+       })
+    }
+    return contactData;
   }
+
 }
-export function loader() {
-  return defer({
-    contacts: loadContacts(),
-  });
-}
+
+
+    
+ 
