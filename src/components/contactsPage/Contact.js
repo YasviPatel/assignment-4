@@ -4,7 +4,7 @@ function Contact(){
   return(
     <>
        <div>
-            Hello from contact
+            {/* Hello from contact */}
        </div>
     </>
   )

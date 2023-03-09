@@ -1,9 +1,9 @@
 
-import { useNavigate,json,defer, useLoaderData,Link } from "react-router-dom";
+import { useNavigate,json,defer, useLoaderData,Link,useRouteLoaderData, Outlet} from "react-router-dom";
 import ContactList from "./ContactList"
 const Contacts=()=>{
  
-  const contactData=useLoaderData();
+  const contactData=useRouteLoaderData("contact-detail");
   const navigate=useNavigate();
   console.log(contactData);
 
@@ -16,17 +16,23 @@ const Contacts=()=>{
   
       <ul>
         {contactData.map((contact)=>(
+          
             <li key={contact.id}>
-               Name:{contact.name}
+              <Link to={`${contact.id}`}>
+              Name:{contact.name}
                Company Name:{contact.company}
                Designation:{contact.designation}
-               <Link to={`/editEventForm/${contact.id}`}>Edit</Link>
-            </li>
+               address:{contact.address}
+              </Link>
+               
+            </li>  
+            
         ))}
         
       </ul>
       <button onClick={buttonClickHandler}>Add contact</button>
       <ContactList/>
+      <Outlet/>
     </>
   )
 

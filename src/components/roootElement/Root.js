@@ -4,7 +4,7 @@ import NavigationBar from "../sideBar/NavigationBar"
 function Root(){
     return(
     <>
-    Hello from Root
+    {/* Hello from Root */}
     <NavigationBar/>
     <main>
         <Outlet/>

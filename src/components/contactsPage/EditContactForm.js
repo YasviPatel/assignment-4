@@ -1,17 +1,20 @@
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams, useLoaderData,json, useRouteLoaderData } from "react-router-dom";
 import AddContactForm from "./AddContactForm";
 import { loader } from "./Contacts";
 function EditContactForm(){
-  const contactData=useLoaderData();
+  // const id=useRouteLoaderData("contact-detail");
+  // console.log(id);
+  const data=useLoaderData();
+  console.log(data);
   const contactId=useParams();
-  console.log(contactData);
-  return <AddContactForm method="PATCH" />
+  console.log(contactId);
+  return <AddContactForm method="PATCH" contactData={data}/>
 }
 
 export default EditContactForm;
 
-export async function loaderEdit() {
-  const response = await fetch('https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json',{
+export async function loaderEdit({params}) {
+  const response = await fetch(`https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts/${params.id}.json`,{
     method:"GET",
     headers:{
       'Content-Type':'application/json'
@@ -36,19 +39,17 @@ export async function loaderEdit() {
     const resData = await response.json();
     console.log(resData);
     let contactData=[];
-    for(const key in resData){
-      if(resData[key].id===contactId){
+      console.log(params.id)
        contactData.push({
-        id:key,
-        name:resData[key].name,
-        company:resData[key].company,
-        designation:resData[key].designation,
-        phone:resData[key].phone,
-        address:resData[key].address,
-        email:resData[key].email,
-        contactId:resData[key].id
+        name:resData.name,
+        company:resData.company,
+        designation:resData.designation,
+        phone:resData.phone,
+        address:resData.address,
+        email:resData.email,
+        contactId:resData.id
        })
-    }}
+    console.log(contactData);
     return contactData;
   }
 
