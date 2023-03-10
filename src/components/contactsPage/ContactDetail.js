@@ -12,7 +12,6 @@ function ContactDetail(){
             <li>{data.designation}</li>
             <li>{data.address}</li>
         </ul>
-        
         <Link to={"edit"}>Edit</Link>
         <Outlet/>
         </>

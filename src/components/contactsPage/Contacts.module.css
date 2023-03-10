@@ -1,0 +1,14 @@
+.main{
+   margin-top: 20px;
+   margin-left: 20px; 
+}
+
+.main1{
+    display: flex;
+    flex-direction: row;
+}
+
+.main1>input{
+     border-radius: 5px;
+     margin-right: 10px;
+}

@@ -2,10 +2,10 @@
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Contacts,{loader as contactLoader} from './components/contactsPage/Contacts';
-import RootLayout from './components/roootElement/Root';
+import RootLayout from './components/rootElement/Root';
 import ErrorPage from './components/error/ErrorPage';
-import AddContactForm,{action as formAction} from './components/contactsPage/AddContactForm';
-import EditContactForm,{loaderEdit} from "./components/contactsPage/EditContactForm";
+import ContactForm,{action as formAction} from './components/contactsPage/ContactForm';
+import EditContact,{loaderEdit} from "./components/contactsPage/EditContact";
 import ContactDetail,{loader as contactDetailLoader} from './components/contactsPage/ContactDetail';
 
 const router=createBrowserRouter([
@@ -13,17 +13,15 @@ const router=createBrowserRouter([
   path:'/',
   element:<RootLayout/>,
   errorElement:<ErrorPage/>,
-  loader:contactLoader,
-  id:"contact-detail",
   children:[
-    {path:"",element:<Contacts/>,children:[
+    {path:"contacts",element:<Contacts/>,loader:contactLoader,id:"contact-detail",children:[
       {
         path:':id',element:<ContactDetail/>,loader:contactDetailLoader,children:[
-           {path:'edit',element:<EditContactForm method="patch"/>,action:formAction,loader:loaderEdit}
+           {path:'edit',element:<EditContact/>,action:formAction,loader:loaderEdit}
         ]
       }
     ]},  //path:''
-    {path:'addContactForm',element:<AddContactForm method="post"/>,action:formAction},
+     {path:'contactForm',element:<ContactForm method="post"/>,action:formAction},
     
   ]
   }

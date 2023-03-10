@@ -1,58 +1,52 @@
 
+import { useRef, useState } from "react";
 import { useNavigate,json,defer, useLoaderData,Link,useRouteLoaderData, Outlet} from "react-router-dom";
-import ContactList from "./ContactList"
+import ContactList from "./ContactList";
+import classes from "./Contacts.module.css"
 const Contacts=()=>{
  
   const contactData=useRouteLoaderData("contact-detail");
   const navigate=useNavigate();
   console.log(contactData);
+  
+  const [contactList,setContactList]=useState(contactData);
+  const queryRef=useRef("");
+  let contactFiltered=[];
 
-  function buttonClickHandler(){
-      navigate('addContactForm');
+  function searchContactHandler(){
+           
+          //  setQuery(event?.target.value)
+          console.log("srch hndlr ran");
+          //  querySearch=query;
+          //  contactFiltered=contactData.filter(ele=>ele.name.toLowerCase().includes(query));
+          contactFiltered=contactData.filter(ele=>ele.name.toLowerCase().includes(queryRef.current.value));
+           console.log(queryRef.current.value)
+          //  console.log(queryRef.current.value)
+           console.log(contactFiltered);
+           setContactList(queryRef.current.value===""?contactData:contactFiltered);
+           console.log(contactList);
   }
+  function addContactHandler(){
+      navigate('contactForm');
+  }
+
   return (
     
     <>
-  
-      <ul>
-        {contactData.map((contact)=>(
-          
-            <li key={contact.id}>
-              <Link to={`${contact.id}`}>
-              Name:{contact.name}
-               Company Name:{contact.company}
-               Designation:{contact.designation}
-               address:{contact.address}
-              </Link>
-               
-            </li>  
-            
-        ))}
-        
-      </ul>
-      <button onClick={buttonClickHandler}>Add contact</button>
-      <ContactList/>
+      <div className={classes.main}>
+      <div className={classes.main1}>
+      <input type={"search"} placeholder="search contacts..."  onChange={searchContactHandler} ref={queryRef}/>
+      <br/>
+      <button onClick={addContactHandler}>+ Add contact</button>
+      </div>
+      <ContactList contactDataList={contactList}/>
+      </div>
       <Outlet/>
     </>
   )
 
   }
 export default Contacts;
-// async function loadContact(id) {
-//   const response = await fetch('' + id);
-
-//   if (!response.ok) {
-//     throw json(
-//       { message: 'Could not fetch details for selected event.' },
-//       {
-//         status: 500,
-//       }
-//     );
-//   } else {
-//     const resData = await response.json();
-//     return resData.event;
-//   }
-// }
 
 export async function loader() {
   const response = await fetch('https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json',{
