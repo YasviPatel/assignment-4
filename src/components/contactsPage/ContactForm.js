@@ -70,7 +70,7 @@ export async function action({request,params}) {
          throw json({message:'Could Not save Data'},{status:300})
       }
    }
-    return redirect('/');
+    return redirect('/contacts');
   }
 
   

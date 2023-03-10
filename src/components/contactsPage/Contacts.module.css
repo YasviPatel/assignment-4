@@ -1,6 +1,6 @@
 .main{
-   margin-top: 20px;
-   margin-left: 20px; 
+  margin-top: 20px;
+  margin-left: 20px;
 }
 
 .main1{
@@ -9,6 +9,15 @@
 }
 
 .main1>input{
-     border-radius: 5px;
+     border-radius: 25px;
      margin-right: 10px;
+     height: 30px;
+     color: grey;
+}
+
+.main1>button{
+    border-radius: 5px;
+    background-image: linear-gradient(to right,rgb(241, 125, 58),rgb(221, 94, 132));
+    border-style: none;
+    color: white;
 }

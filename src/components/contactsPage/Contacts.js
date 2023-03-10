@@ -34,9 +34,10 @@ const Contacts=()=>{
     
     <>
       <div className={classes.main}>
+        <h1>Contacts</h1>
+        <p>Welcome to contacts page</p>
       <div className={classes.main1}>
       <input type={"search"} placeholder="search contacts..."  onChange={searchContactHandler} ref={queryRef}/>
-      <br/>
       <button onClick={addContactHandler}>+ Add contact</button>
       </div>
       <ContactList contactDataList={contactList}/>

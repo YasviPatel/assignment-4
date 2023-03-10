@@ -21,7 +21,7 @@ const router=createBrowserRouter([
         ]
       }
     ]},  //path:''
-     {path:'contactForm',element:<ContactForm method="post"/>,action:formAction},
+     {path:'contacts/contactForm',element:<ContactForm method="post"/>,action:formAction},
     
   ]
   }
