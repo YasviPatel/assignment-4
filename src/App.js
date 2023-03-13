@@ -16,7 +16,8 @@ const router=createBrowserRouter([
   children:[
     {path:"contacts",element:<Contacts/>,loader:contactLoader,id:"contact-detail",children:[
       {
-        path:':id',element:<ContactDetail/>,loader:contactDetailLoader,children:[
+        path:':id',element:<ContactDetail/>,loader:contactDetailLoader
+        ,children:[
            {path:'edit',element:<EditContact/>,action:formAction,loader:loaderEdit}
         ]
       }

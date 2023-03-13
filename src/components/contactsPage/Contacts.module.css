@@ -1,11 +1,15 @@
-.main{
+.main2{
+  display: flex;
+  flex-direction: column;
   margin-top: 20px;
   margin-left: 20px;
+  margin-right: 30px;
 }
 
 .main1{
     display: flex;
     flex-direction: row;
+    margin-bottom: 30px;
 }
 
 .main1>input{
@@ -21,3 +25,40 @@
     border-style: none;
     color: white;
 }
+
+.contacts{
+    display:flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+}
+
+
+.contactHeader{
+  padding-left: 65px;
+  display: flex;
+  flex-direction: row;
+  align-content:space-evenly;
+  background-color: #EBECF0;
+  border-radius: 10px;
+  width: 345px;
+  margin-bottom: 34px;
+}
+
+.basicInfo{
+  padding-right: 130px;
+}
+
+.mainContactList{
+  display: flex;
+
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+}
+
+.main3{
+  margin-left: 20px;
+}
+

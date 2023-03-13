@@ -1,0 +1,67 @@
+.main{
+    min-width: 20vw;
+    height: 7vh;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+
+    align-items: center;
+    font-family:  sans-serif;
+    font-weight: 1.5fr;
+    border-bottom: none
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    min-width: 50%;
+    word-break: break-word;
+}
+
+.company{
+    display: inline;
+    margin-right: 40px;
+    justify-self: end;
+    float: left;
+    min-width: 30%;
+}
+
+a{
+    color:black;
+}
+
+
+.circleSpan span{
+    font-size: 1em;
+}
+
+.circleDiv{
+    display: table-row;
+}
+
+.circleDiv>p{
+    margin: 0;
+}
+.circleSpan{
+    width: 3em;
+    border-radius: 50%;
+    background-color: rgb(24, 232, 145);
+    display: inline-block;
+    height: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 20px; */
+}
+
+.main:hover{
+    background-color: rgb(209, 209, 209);
+}
+
+.contactName{
+    font-size: 20px;
+}
+
+.email{
+    color: rgb(177,177,177);
+}

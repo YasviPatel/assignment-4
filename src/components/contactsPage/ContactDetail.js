@@ -1,18 +1,54 @@
 import { useParams,json, useLoaderData, Link, Outlet} from "react-router-dom";
+import classes from "./ContactDetail.module.css"
 
 function ContactDetail(){
     const id=useParams();
     const data=useLoaderData();
     console.log(data);
-    console.log(id);
+    console.log(data.name.split(" "));
+   const profileLettersSplit = data.name.split(" ");
+   console.log(profileLettersSplit);
+   const firstLetter = profileLettersSplit[0].slice(0, 1).toUpperCase();
+   let profileLetters = firstLetter;
+   if (profileLettersSplit.length > 1) {
+    const secondLetter = profileLettersSplit[1].slice(0, 1).toUpperCase();
+    profileLetters = firstLetter.concat(secondLetter);
+   }
     return(
         <>
-        <ul>
-            <li>{data.name}</li>
-            <li>{data.designation}</li>
-            <li>{data.address}</li>
-        </ul>
-        <Link to={"edit"}>Edit</Link>
+        <div className={classes.details}>
+          <div className={classes.circle}>
+           <p>
+            <span className={classes.circleSpan}>{profileLetters}</span>
+           </p>
+           {data.designation && data.company && <p className={classes.position}>
+             {data.designation} at {data.company}
+           </p>}
+          </div>
+        <div className={classes.detailsName}>
+          <div className={classes.property}>Full Name:</div>
+          <div className={classes.value}>{data.name}</div>
+        </div>
+        <div className={classes.detailsEmail}>
+          <div className={classes.property}>Email:</div>
+          <div className={classes.value}>{data.email}</div>
+        </div>
+        <div className={classes.detailsPhone}>
+          <div className={classes.property}>Phone:</div>
+          <div className={classes.value}>{data.phone}</div>
+        </div>
+        <div className={classes.detailsCompany}>
+          <div className={classes.property}>Company:</div>
+          <div className={classes.value}>{data.company}</div>
+        </div>
+        <div className={classes.detailsAddress}>
+          <div className={classes.property}>Address:</div>
+          <div className={classes.value}>{data.address}</div>
+        </div>
+        <div className={classes.value}>
+        <Link to={"edit"}><span className={classes.edit}>Edit</span></Link>
+        </div>
+        </div>
         <Outlet/>
         </>
     )

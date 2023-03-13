@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouteLoaderData,Link } from "react-router-dom";
 import Contact from "./Contact";
+import classes from "./ContactList.module.css"
 
 function ContactList(props){
   // const contactData=useRouteLoaderData("contact-detail");
@@ -13,10 +14,7 @@ function ContactList(props){
           
             <li key={contact.id}>
               <Link to={`${contact.id}`}>
-              Name:{contact.name}
-               Company Name:{contact.company}
-               Designation:{contact.designation}
-               address:{contact.address}
+              <Contact contact={contact}/>
               </Link>
                
             </li>  
@@ -24,7 +22,6 @@ function ContactList(props){
         )}
         
       </ul>
-      <Contact/>
   </>
   )
 }

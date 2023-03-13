@@ -1,0 +1,42 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    margin:30px;
+    padding-bottom: 23px;
+    color: blueviolet;
+    font-size: large;
+}
+
+.form>input[type="text"]{
+    width: 270px;
+    height:20px;
+    border-radius: 3px;
+    border-color: gray;
+    font-size: medium;
+}
+
+.form>input[type="email"]{
+    width: 270px;
+    height: 20px;
+    border-radius: 3px;
+    border-color: gray;
+    font-size: medium;
+}
+
+.form>button{
+    height: 40px;
+    color: white;
+    font-size: medium;
+    border: none;
+    border-radius: 3px;
+    background-image:linear-gradient(to right,rgb(241, 125, 58),rgb(221, 94, 132));
+}
+
+.error{
+        border: 1px solid red;
+        background-color: rgba(255, 0, 0, 0.2);
+}
+
+.errorMessage{
+    color: red;
+}

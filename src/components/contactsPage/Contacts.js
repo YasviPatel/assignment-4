@@ -1,62 +1,92 @@
-
 import { useRef, useState } from "react";
-import { useNavigate,json,defer, useLoaderData,Link,useRouteLoaderData, Outlet} from "react-router-dom";
+import {
+  useNavigate,
+  json,
+  defer,
+  useLoaderData,
+  Link,
+  useRouteLoaderData,
+  Outlet,
+} from "react-router-dom";
 import ContactList from "./ContactList";
-import classes from "./Contacts.module.css"
-const Contacts=()=>{
- 
-  const contactData=useRouteLoaderData("contact-detail");
-  const navigate=useNavigate();
+import classes from "./Contacts.module.css";
+const Contacts = () => {
+  const contactData = useRouteLoaderData("contact-detail");
+  const navigate = useNavigate();
   console.log(contactData);
-  
-  const [contactList,setContactList]=useState(contactData);
-  const queryRef=useRef("");
-  let contactFiltered=[];
 
-  function searchContactHandler(){
-           
-          //  setQuery(event?.target.value)
-          console.log("srch hndlr ran");
-          //  querySearch=query;
-          //  contactFiltered=contactData.filter(ele=>ele.name.toLowerCase().includes(query));
-          contactFiltered=contactData.filter(ele=>ele.name.toLowerCase().includes(queryRef.current.value));
-           console.log(queryRef.current.value)
-          //  console.log(queryRef.current.value)
-           console.log(contactFiltered);
-           setContactList(queryRef.current.value===""?contactData:contactFiltered);
-           console.log(contactList);
+  const [contactList, setContactList] = useState(contactData);
+  const queryRef = useRef("");
+  let contactFiltered = [];
+
+  function searchContactHandler() {
+    //  setQuery(event?.target.value)
+    console.log("srch hndlr ran");
+    //  querySearch=query;
+    //  contactFiltered=contactData.filter(ele=>ele.name.toLowerCase().includes(query));
+    contactFiltered = contactData.filter((ele) =>
+      ele.name.toLowerCase().includes(queryRef.current.value)
+    );
+    console.log(queryRef.current.value);
+    //  console.log(queryRef.current.value)
+    console.log(contactFiltered);
+    setContactList(
+      queryRef.current.value === "" ? contactData : contactFiltered
+    );
+    console.log(contactList);
   }
-  function addContactHandler(){
-      navigate('contactForm');
+  function addContactHandler() {
+    navigate("contactForm");
   }
 
   return (
-    
     <>
       <div className={classes.main}>
-        <h1>Contacts</h1>
-        <p>Welcome to contacts page</p>
-      <div className={classes.main1}>
-      <input type={"search"} placeholder="search contacts..."  onChange={searchContactHandler} ref={queryRef}/>
-      <button onClick={addContactHandler}>+ Add contact</button>
-      </div>
-      <ContactList contactDataList={contactList}/>
-      </div>
-      <Outlet/>
-    </>
-  )
+        <div className={classes.main2}>
+          <div className={classes.contacts}>
+            <p>
+              Contacts
+              <br /> Welcome to contacts page
+            </p>
+          </div>
+          <div className={classes.main1}>
+            <input
+              type={"search"}
+              placeholder="search contacts..."
+              onChange={searchContactHandler}
+              ref={queryRef}
+            />
+            <button onClick={addContactHandler}>+ Add contact</button>
+          </div>
 
-  }
+          <div className={classes.contactHeader}>
+            <p className={classes.basicInfo}>Basic Info</p>
+            <p>Company</p>
+          </div>
+        </div>
+        <div className={classes.main3}>
+          <div className={classes.mainContactList}>
+            <ContactList contactDataList={contactList} />
+            </div>
+        </div>
+      </div>
+      <Outlet />
+    </>
+  );
+};
 export default Contacts;
 
 export async function loader() {
-  const response = await fetch('https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json',{
-    method:"GET",
-    headers:{
-      'Content-Type':'application/json'
+  const response = await fetch(
+    "https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts.json",
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  })
-    
+  );
+
   console.log(response);
 
   if (!response.ok) {
@@ -65,7 +95,7 @@ export async function loader() {
     //   status: 500,
     // });
     throw json(
-      { message: 'Could not fetch events.' },
+      { message: "Could not fetch contacts." },
       {
         status: 500,
       }
@@ -74,24 +104,19 @@ export async function loader() {
     console.log(response.json);
     const resData = await response.json();
     console.log(resData);
-    let contactData=[];
-    for(const key in resData){
-       contactData.push({
-        id:key,
-        name:resData[key].name,
-        company:resData[key].company,
-        designation:resData[key].designation,
-        phone:resData[key].phone,
-        address:resData[key].address,
-        email:resData[key].email,
-        contactId:resData[key].id
-       })
+    let contactData = [];
+    for (const key in resData) {
+      contactData.push({
+        id: key,
+        name: resData[key].name,
+        company: resData[key].company,
+        designation: resData[key].designation,
+        phone: resData[key].phone,
+        address: resData[key].address,
+        email: resData[key].email,
+        contactId: resData[key].id,
+      });
     }
     return contactData;
   }
-
 }
-
-
-    
- 
