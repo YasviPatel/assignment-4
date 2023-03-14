@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineContacts } from "react-icons/ai"; 
 import {
   useNavigate,
@@ -17,6 +17,11 @@ const Contacts = () => {
   console.log(contactData);
 
   const [contactList, setContactList] = useState(contactData);
+  useEffect(()=>{
+    if(contactData.length>0){
+    setContactList(contactData);
+    }
+  },[contactData]);
   const queryRef = useRef("");
   let contactFiltered = [];
 
