@@ -24,6 +24,7 @@ function ContactDetail(){
            <p>
             <span className={classes.circleSpan}>{profileLetters}</span>
            </p>
+           <p style={{fontWeight:'bold',marginTop:'10px'}}>{data.name}</p>
            {data.designation && data.company && <p className={classes.position}>
              {data.designation} at {data.company}
            </p>}

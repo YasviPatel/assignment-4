@@ -12,6 +12,13 @@ import {
 import ContactList from "./ContactList";
 import classes from "./Contacts.module.css";
 const Contacts = () => {
+  // const [loading,setLoading]=useState(false);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1000);
+  // },[]);
   const contactData = useLoaderData();
   const navigate = useNavigate();
   console.log(contactData);
@@ -44,9 +51,9 @@ const Contacts = () => {
   function addContactHandler() {
     navigate("contactForm");
   }
-
   return (
     <>
+    <div className={classes.parent}>
       <div className={classes.main}>
         <div className={classes.main2}>
           {/* <div className={classes.contacts1}>
@@ -75,13 +82,17 @@ const Contacts = () => {
         </div>
         <div className={classes.main3}>
           <div className={classes.mainContactList}>
-            <ContactList contactDataList={contactList} />
+            {contactList.length==0 ? <p style={{fontWeight:"bold",textAlign:'center'}}>No contacts to show!</p>: <ContactList contactDataList={contactList} />}
             </div>
         </div>
-      </div>
-      <Outlet />
+        </div>
+        <div className={classes.outlet}>
+          <Outlet />
+        </div>
+        </div>
     </>
   );
+        
 };
 export default Contacts;
 

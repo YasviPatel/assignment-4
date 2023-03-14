@@ -12,7 +12,6 @@
     margin:1rem;
     color:white;
     scale: 1.25;
-    
 }
 
 .main>div{
@@ -27,5 +26,20 @@
     align-items: center;
     height: 100vh;
 }
+
+
+@media screen and (max-width:950px){
+    .main1{
+        height: 100%;
+    }
+    /* .main{
+        height: 100%
+    }  */
+}
+
+
+
+
+
 
 

@@ -9,7 +9,7 @@ import {CiSettings} from "react-icons/ci"
 import classes from "./NavigationBar.module.css";
 import  ReactDOM  from "react-dom";
 import {RiMenu2Fill} from "react-icons/ri"
-import React from "react";
+import React, { useState } from "react";
 
 function NavigationBar(){
           return (
