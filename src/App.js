@@ -7,7 +7,7 @@ import ErrorPage from './components/error/ErrorPage';
 import ContactForm,{action as formAction} from './components/contactsPage/ContactForm';
 import EditContact,{loaderEdit} from "./components/contactsPage/EditContact";
 import ContactDetail,{loader as contactDetailLoader} from './components/contactsPage/ContactDetail';
-import EditContactPage from './components/contactsPage/EditContactPage';
+import HomePage from "./components/contactsPage/HomePage"
 
 const router=createBrowserRouter([
   {
@@ -15,6 +15,7 @@ const router=createBrowserRouter([
   element:<RootLayout/>,
   errorElement:<ErrorPage/>,
   children:[
+    {path:'',element:<HomePage/>},
     {path:"contacts",element:<Contacts/>,loader:contactLoader,id:"contact-detail",children:[
       {
         path:':id',element:<ContactDetail/>,loader:contactDetailLoader
