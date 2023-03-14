@@ -3,7 +3,6 @@
     flex-direction: column;
     background-image: linear-gradient(to bottom,rgb(241, 125, 58),rgb(221, 94, 132));
     align-items: flex-start;
-    height: 100%;
     width: min-content;
     margin: 0;
 }

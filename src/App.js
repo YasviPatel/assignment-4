@@ -7,6 +7,7 @@ import ErrorPage from './components/error/ErrorPage';
 import ContactForm,{action as formAction} from './components/contactsPage/ContactForm';
 import EditContact,{loaderEdit} from "./components/contactsPage/EditContact";
 import ContactDetail,{loader as contactDetailLoader} from './components/contactsPage/ContactDetail';
+import EditContactPage from './components/contactsPage/EditContactPage';
 
 const router=createBrowserRouter([
   {

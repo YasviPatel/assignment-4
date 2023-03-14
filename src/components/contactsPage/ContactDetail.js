@@ -1,8 +1,10 @@
-import { useParams,json, useLoaderData, Link, Outlet} from "react-router-dom";
+import { useParams,json, useLoaderData,useRouteLoaderData,Link, Outlet} from "react-router-dom";
 import classes from "./ContactDetail.module.css"
+import Contacts from "./Contacts";
 
 function ContactDetail(){
     const id=useParams();
+    // const data=useRouteLoaderData('contactItem');
     const data=useLoaderData();
     console.log(data);
     console.log(data.name.split(" "));
@@ -16,6 +18,7 @@ function ContactDetail(){
    }
     return(
         <>
+        {/* <Contacts/> */}
         <div className={classes.details}>
           <div className={classes.circle}>
            <p>

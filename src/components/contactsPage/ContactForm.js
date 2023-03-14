@@ -11,6 +11,7 @@ function ContactForm({method="post",contactData}){
       <>
          <Form method={method}>
           <div className={classes.form}>
+            {method==="post" && <h2>Add details of new contact</h2>}
              Enter your name:*<input type={"text"} name="name" defaultValue={contactData ? contactData.name : ""} 
              className={error && error.nameError && classes.error } />
               {error && error.nameError && <p className={classes.errorMessage}>{error.nameError}</p>}

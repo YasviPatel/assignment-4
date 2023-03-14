@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { AiOutlineContacts } from "react-icons/ai"; 
 import {
   useNavigate,
   json,
@@ -11,7 +12,7 @@ import {
 import ContactList from "./ContactList";
 import classes from "./Contacts.module.css";
 const Contacts = () => {
-  const contactData = useRouteLoaderData("contact-detail");
+  const contactData = useLoaderData();
   const navigate = useNavigate();
   console.log(contactData);
 
@@ -43,12 +44,15 @@ const Contacts = () => {
     <>
       <div className={classes.main}>
         <div className={classes.main2}>
-          <div className={classes.contacts}>
+          {/* <div className={classes.contacts1}>
+           <AiOutlineContacts/> */}
+           <div className={classes.contacts}>
             <p>
               Contacts
               <br /> Welcome to contacts page
             </p>
-          </div>
+            </div>
+          {/* </div> */}
           <div className={classes.main1}>
             <input
               type={"search"}

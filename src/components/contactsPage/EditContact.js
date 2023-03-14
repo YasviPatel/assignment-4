@@ -4,6 +4,7 @@ import { loader } from "./Contacts";
 function EditContact(){
   // const id=useRouteLoaderData("contact-detail");
   // console.log(id);
+  // const data=useRouteLoaderData('contactItem');
   const data=useLoaderData();
   console.log(data);
   const contactId=useParams();

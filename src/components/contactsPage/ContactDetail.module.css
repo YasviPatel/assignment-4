@@ -20,6 +20,7 @@
 }
 .details{
     align-self: center;
+    min-width: 18vw;
     height: 55%;
     background-color: rgb(243, 243, 243);
     border-radius: 5px;
@@ -30,14 +31,12 @@
 
 
 .property{
-    display: flex;
     text-align: left;
     padding: 10px;
     word-break: break-word;
 }
 
 .value{
-    display: flex;
     text-align: left;
     padding: 10px;
     word-break: break-word;
