@@ -8,14 +8,15 @@ main{
     display: flex;
     flex-direction: row;
     width: 100%;
+    /* margin-left: 34px; */
 }
 
-@media screen and (max-width:950px){
+/* @media screen and (max-width:950px){
     .main{
-        height: 100%;
+        height: max-content;
     }
     main{
-        height: 100%;
+        height: max-content;
     }
     
-}
+} */

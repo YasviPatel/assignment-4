@@ -49,6 +49,7 @@
 
 .mainContactList{
   display: flex;
+  /* overflow-y: scroll; */
 }
 
 .main{
