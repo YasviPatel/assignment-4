@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { AiOutlineContacts } from "react-icons/ai"; 
+import { RiContactsBook2Fill } from "react-icons/ri"; 
+import { AiOutlineSearch } from "react-icons/ai";
 import {
   useNavigate,
   json,
@@ -58,14 +59,19 @@ const Contacts = () => {
         <div className={classes.main2}>
           {/* <div className={classes.contacts1}>
            <AiOutlineContacts/> */}
+           <div className={classes.contactIcons}>
+           <div><RiContactsBook2Fill className={classes.contactIcon}/></div>
            <div className={classes.contacts}>
             <p>
               Contacts
               <br /> Welcome to contacts page
             </p>
             </div>
+            </div>
           {/* </div> */}
           <div className={classes.main1}>
+            
+            <AiOutlineSearch className={classes.iconsearch}/>
             <input
               type={"search"}
               placeholder="search contacts..."
@@ -73,6 +79,7 @@ const Contacts = () => {
               ref={queryRef}
             />
             <button onClick={addContactHandler}>+ Add contact</button>
+          
           </div>
 
           <div className={classes.contactHeader}>

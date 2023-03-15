@@ -40,11 +40,11 @@
   align-content:space-evenly;
   background-color: #EBECF0;
   border-radius: 10px;
-  width: 345px;
+  width: 90%;
 }
 
 .basicInfo{
-  padding-right: 130px;
+  padding-right: 190px;
 }
 
 .mainContactList{
@@ -70,10 +70,33 @@
   display: flex;
   flex-direction: row;
 }
-/* .outlet{
+
+button:hover{
+  cursor: pointer;
+}
+.outlet{
+  margin-left: 13px;
+}
+
+.iconsearch{
+  position: absolute;
+  left:225px;
+  top:115px;
+}
+
+.contactIcon{
+  display: flex;
+  font-size: 2rem;
+  margin-top: 18px;
+  color:rgb(255, 94, 0);
+}
+
+.contactIcons{
   display: flex;
   flex-direction: row;
-} */
+
+}
+
 
 
 @media screen and (max-width:950px){

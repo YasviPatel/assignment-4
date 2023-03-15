@@ -1,4 +1,4 @@
-import { useParams,json, useLoaderData,useRouteLoaderData,Link, Outlet} from "react-router-dom";
+import { useParams,json, useLoaderData,useRouteLoaderData,Link, Outlet, useNavigation} from "react-router-dom";
 import classes from "./ContactDetail.module.css"
 import Contacts from "./Contacts";
 
@@ -16,6 +16,7 @@ function ContactDetail(){
     const secondLetter = profileLettersSplit[1].slice(0, 1).toUpperCase();
     profileLetters = firstLetter.concat(secondLetter);
    }
+   const nav=useNavigation();
     return(
         <>
         {/* <Contacts/> */}
@@ -53,7 +54,8 @@ function ContactDetail(){
         <Link to={"edit"}><span className={classes.edit}>Edit</span></Link>
         </div>
         </div>
-        <Outlet/>
+        {nav.state==="loading" ? <p>Loading...</p> :<Outlet/>}
+        
         </>
     )
 }

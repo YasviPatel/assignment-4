@@ -24,7 +24,7 @@ const Contact = (props) => {
           <div className={classes.contactName}>{props.contact.name}</div>
           <div className={classes.email}>{props.contact.email}</div>
         </div>
-        <p className={classes.company}>{props.contact.company}</p>
+        <span className={classes.company}>{props.contact.company}</span>
       </div>
      
     </>

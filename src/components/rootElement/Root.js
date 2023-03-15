@@ -6,7 +6,7 @@ function Root(){
     return(
     <div className={classes.main}>
     {/* Hello from Root */}
-    <NavigationBar/>
+    <div className={classes.navBar}><NavigationBar/></div>
     <main>
         <Outlet/>
     </main>
