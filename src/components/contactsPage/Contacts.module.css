@@ -1,4 +1,4 @@
-.main2{
+.main2 {
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -6,108 +6,107 @@
   margin-right: 30px;
 }
 
-.main1{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 30px;
+.main1 {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 30px;
 }
 
-.main1>input{
-     border-radius: 25px;
-     margin-right: 10px;
-     height: 30px;
-     color: grey;
+.main1 > input {
+  border-radius: 25px;
+  margin-right: 10px;
+  height: 30px;
+  color: grey;
 }
 
-.main1>button{
-    border-radius: 5px;
-    background-image: linear-gradient(to right,rgb(241, 125, 58),rgb(221, 94, 132));
-    border-style: none;
-    color: white;
+.main1 > button {
+  border-radius: 5px;
+  background-image: linear-gradient(
+    to right,
+    rgb(241, 125, 58),
+    rgb(221, 94, 132)
+  );
+  border-style: none;
+  color: white;
 }
 
-.contacts{
-    display:flex;
-    flex-direction: column;
-    padding-bottom: 20px;
+.contacts {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
 
-
-.contactHeader{
+.contactHeader {
   padding-left: 65px;
   display: flex;
   flex-direction: row;
-  align-content:space-evenly;
-  background-color: #EBECF0;
+  align-content: space-evenly;
+  background-color: #ebecf0;
   border-radius: 10px;
   width: 90%;
 }
 
-.basicInfo{
+.basicInfo {
   padding-right: 190px;
 }
 
-.mainContactList{
+.mainContactList {
   display: flex;
   /* overflow-y: scroll; */
 }
 
-.main{
+.main {
   display: flex;
   flex-direction: column;
 }
 
-.main3{
+.main3 {
   display: flex;
   margin-left: 20px;
 }
-.contacts1{
+.contacts1 {
   display: flex;
   flex-direction: row;
 }
 
-.parent{
+.parent {
   display: flex;
   flex-direction: row;
 }
 
-button:hover{
+button:hover {
   cursor: pointer;
 }
-.outlet{
+.outlet {
   margin-left: 13px;
 }
 
-.iconsearch{
+.iconsearch {
   position: absolute;
-  left:225px;
-  top:115px;
+  left: 225px;
+  top: 115px;
 }
 
-.contactIcon{
+.contactIcon {
   display: flex;
   font-size: 2rem;
   margin-top: 18px;
-  color:rgb(255, 94, 0);
+  color: rgb(255, 94, 0);
 }
 
-.contactIcons{
+.contactIcons {
   display: flex;
   flex-direction: row;
-
 }
 
-
-
-@media screen and (max-width:950px){
-  .parent{
+@media screen and (max-width: 950px) {
+  .parent {
     display: flex;
     flex-direction: column;
   }
-  .outlet{
+  .outlet {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 }
-

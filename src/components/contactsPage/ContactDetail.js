@@ -1,35 +1,45 @@
-import { useParams,json, useLoaderData,useRouteLoaderData,Link, Outlet, useNavigation} from "react-router-dom";
-import classes from "./ContactDetail.module.css"
+import {
+  useParams,
+  json,
+  useLoaderData,
+  useRouteLoaderData,
+  Link,
+  Outlet,
+  useNavigation,
+} from "react-router-dom";
+import classes from "./ContactDetail.module.css";
 import Contacts from "./Contacts";
 
-function ContactDetail(){
-    const id=useParams();
-    // const data=useRouteLoaderData('contactItem');
-    const data=useLoaderData();
-    console.log(data);
-    console.log(data.name.split(" "));
-   const profileLettersSplit = data.name.split(" ");
-   console.log(profileLettersSplit);
-   const firstLetter = profileLettersSplit[0].slice(0, 1).toUpperCase();
-   let profileLetters = firstLetter;
-   if (profileLettersSplit.length > 1) {
+function ContactDetail() {
+  const id = useParams();
+  // const data=useRouteLoaderData('contactItem');
+  const data = useLoaderData();
+  console.log(data);
+  console.log(data.name.split(" "));
+  const profileLettersSplit = data.name.split(" ");
+  console.log(profileLettersSplit);
+  const firstLetter = profileLettersSplit[0].slice(0, 1).toUpperCase();
+  let profileLetters = firstLetter;
+  if (profileLettersSplit.length > 1) {
     const secondLetter = profileLettersSplit[1].slice(0, 1).toUpperCase();
     profileLetters = firstLetter.concat(secondLetter);
-   }
-   const nav=useNavigation();
-    return(
-        <>
-        {/* <Contacts/> */}
-        <div className={classes.details}>
-          <div className={classes.circle}>
-           <p>
+  }
+  const nav = useNavigation();
+  return (
+    <>
+      {/* <Contacts/> */}
+      <div className={classes.details}>
+        <div className={classes.circle}>
+          <p>
             <span className={classes.circleSpan}>{profileLetters}</span>
-           </p>
-           <p style={{fontWeight:'bold',marginTop:'10px'}}>{data.name}</p>
-           {data.designation && data.company && <p className={classes.position}>
-             {data.designation} at {data.company}
-           </p>}
-          </div>
+          </p>
+          <p style={{ fontWeight: "bold", marginTop: "10px" }}>{data.name}</p>
+          {data.designation && data.company && (
+            <p className={classes.position}>
+              {data.designation} at {data.company}
+            </p>
+          )}
+        </div>
         <div className={classes.detailsName}>
           <div className={classes.property}>Full Name:</div>
           <div className={classes.value}>{data.name}</div>
@@ -51,54 +61,56 @@ function ContactDetail(){
           <div className={classes.value}>{data.address}</div>
         </div>
         <div className={classes.value}>
-        <Link to={"edit"}><span className={classes.edit}>Edit</span></Link>
+          <Link to={"edit"}>
+            <span className={classes.edit}>Edit</span>
+          </Link>
         </div>
-        </div>
-        {nav.state==="loading" ? <p>Loading...</p> :<Outlet/>}
-        
-        </>
-    )
+      </div>
+      {nav.state === "loading" ? <p>Loading...</p> : <Outlet />}
+    </>
+  );
 }
 
 export default ContactDetail;
 
-export async function loader({params}) {
-    const response = await fetch(`https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts/${params.id}.json`,{
-      method:"GET",
-      headers:{
-        'Content-Type':'application/json'
-      }
-    })
-      
-    console.log(response);
-  
-    if (!response.ok) {
-      // return { isError: true, message: 'Could not fetch events.' };
-      // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
-      //   status: 500,
-      // });
-      throw json(
-        { message: 'Could not fetch events.' },
-        {
-          status: 500,
-        }
-      );
-    } else {
-      console.log(response.json);
-      const resData = await response.json();
-      console.log(resData);
-         let contactData={
-          name:resData.name,
-          company:resData.company,
-          designation:resData.designation,
-          phone:resData.phone,
-          address:resData.address,
-          email:resData.email,
-          contactId:resData.id
-         }
-         console.log(contactData);
-      return contactData;
+export async function loader({ params }) {
+  const response = await fetch(
+    `https://assignment-4-15b74-default-rtdb.firebaseio.com/contacts/${params.id}.json`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  
+  );
+
+  console.log(response);
+
+  if (!response.ok) {
+    // return { isError: true, message: 'Could not fetch events.' };
+    // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
+    //   status: 500,
+    // });
+    throw json(
+      { message: "Could not fetch events." },
+      {
+        status: 500,
+      }
+    );
+  } else {
+    console.log(response.json);
+    const resData = await response.json();
+    console.log(resData);
+    let contactData = {
+      name: resData.name,
+      company: resData.company,
+      designation: resData.designation,
+      phone: resData.phone,
+      address: resData.address,
+      email: resData.email,
+      contactId: resData.id,
+    };
+    console.log(contactData);
+    return contactData;
   }
-  
+}

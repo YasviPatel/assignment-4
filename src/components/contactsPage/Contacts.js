@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { RiContactsBook2Fill } from "react-icons/ri"; 
+import { RiContactsBook2Fill } from "react-icons/ri";
 import { AiOutlineSearch } from "react-icons/ai";
 import {
   useNavigate,
@@ -25,11 +25,11 @@ const Contacts = () => {
   console.log(contactData);
 
   const [contactList, setContactList] = useState(contactData);
-  useEffect(()=>{
-    if(contactData.length>0){
-    setContactList(contactData);
+  useEffect(() => {
+    if (contactData.length > 0) {
+      setContactList(contactData);
     }
-  },[contactData]);
+  }, [contactData]);
   const queryRef = useRef("");
   let contactFiltered = [];
 
@@ -54,52 +54,57 @@ const Contacts = () => {
   }
   return (
     <>
-    <div className={classes.parent}>
-      <div className={classes.main}>
-        <div className={classes.main2}>
-          {/* <div className={classes.contacts1}>
+      <div className={classes.parent}>
+        <div className={classes.main}>
+          <div className={classes.main2}>
+            {/* <div className={classes.contacts1}>
            <AiOutlineContacts/> */}
-           <div className={classes.contactIcons}>
-           <div><RiContactsBook2Fill className={classes.contactIcon}/></div>
-           <div className={classes.contacts}>
-            <p>
-              Contacts
-              <br /> Welcome to contacts page
-            </p>
+            <div className={classes.contactIcons}>
+              <div>
+                <RiContactsBook2Fill className={classes.contactIcon} />
+              </div>
+              <div className={classes.contacts}>
+                <p>
+                  Contacts
+                  <br /> Welcome to contacts page
+                </p>
+              </div>
             </div>
+            {/* </div> */}
+            <div className={classes.main1}>
+              <AiOutlineSearch className={classes.iconsearch} />
+              <input
+                type={"search"}
+                placeholder="search contacts..."
+                onChange={searchContactHandler}
+                ref={queryRef}
+              />
+              <button onClick={addContactHandler}>+ Add contact</button>
             </div>
-          {/* </div> */}
-          <div className={classes.main1}>
-            
-            <AiOutlineSearch className={classes.iconsearch}/>
-            <input
-              type={"search"}
-              placeholder="search contacts..."
-              onChange={searchContactHandler}
-              ref={queryRef}
-            />
-            <button onClick={addContactHandler}>+ Add contact</button>
-          
-          </div>
 
-          <div className={classes.contactHeader}>
-            <p className={classes.basicInfo}>Basic Info</p>
-            <p>Company</p>
-          </div>
-        </div>
-        <div className={classes.main3}>
-          <div className={classes.mainContactList}>
-            {contactList.length==0 ? <p style={{fontWeight:"bold",textAlign:'center'}}>No contacts to show!</p>: <ContactList contactDataList={contactList} />}
+            <div className={classes.contactHeader}>
+              <p className={classes.basicInfo}>Basic Info</p>
+              <p>Company</p>
             </div>
-        </div>
+          </div>
+          <div className={classes.main3}>
+            <div className={classes.mainContactList}>
+              {contactList.length == 0 ? (
+                <p style={{ fontWeight: "bold", textAlign: "center" }}>
+                  No contacts to show!
+                </p>
+              ) : (
+                <ContactList contactDataList={contactList} />
+              )}
+            </div>
+          </div>
         </div>
         <div className={classes.outlet}>
           <Outlet />
         </div>
-        </div>
+      </div>
     </>
   );
-        
 };
 export default Contacts;
 

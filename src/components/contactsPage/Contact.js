@@ -14,11 +14,11 @@ const Contact = (props) => {
     <>
       <div className={classes.main}>
         <div className={classes.circleDiv}>
-            <p>
+          <p>
             <span className={classes.circleSpan}>
-                <span>{profileLetters}</span>
+              <span>{profileLetters}</span>
             </span>
-            </p>
+          </p>
         </div>
         <div className={classes.name}>
           <div className={classes.contactName}>{props.contact.name}</div>
@@ -26,10 +26,8 @@ const Contact = (props) => {
         </div>
         <span className={classes.company}>{props.contact.company}</span>
       </div>
-     
     </>
   );
 };
 
 export default Contact;
-

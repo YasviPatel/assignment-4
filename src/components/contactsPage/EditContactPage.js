@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
-function EditContactPage(){
-   return(
+function EditContactPage() {
+  return (
     <>
       <h3>Edit contact</h3>
-      <Outlet/>
+      <Outlet />
     </>
-   )
+  );
 }
 
 export default EditContactPage;

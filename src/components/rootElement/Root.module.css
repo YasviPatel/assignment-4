@@ -1,18 +1,18 @@
-.main{
-    display: flex;
-    flex-direction: row;
-    height: 100%;
+.main {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 
-main{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-left: 44px;
+main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: 44px;
 }
-.navBar{
-    display: flex;
-    position: fixed;
+.navBar {
+  display: flex;
+  position: fixed;
 }
 
 /* @media screen and (max-width:950px){

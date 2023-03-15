@@ -1,91 +1,93 @@
-.detailsName{
-    display: flex;
-    flex-direction: row;
+.detailsName {
+  display: flex;
+  flex-direction: row;
 }
-.detailsEmail{
-    display: flex;
-    flex-direction: row;
+.detailsEmail {
+  display: flex;
+  flex-direction: row;
 }
-.detailsPhone{
-    display: flex;
-    flex-direction: row;
+.detailsPhone {
+  display: flex;
+  flex-direction: row;
 }
-.detailsCompany{
-    display: flex;
-    flex-direction: row;
+.detailsCompany {
+  display: flex;
+  flex-direction: row;
 }
-.detailsAddress{
-    display: flex;
-    flex-direction: row;
+.detailsAddress {
+  display: flex;
+  flex-direction: row;
 }
-.details{
-    min-width: 18vw;
-    height: fit-content;
-    background-color: rgb(243, 243, 243);
-    border-radius: 5px;
-    padding: 20px;
-    font-size: larger;
-    box-shadow: none;
-    margin-top: 165px;
-}
-
-
-.property{
-    text-align: left;
-    padding: 10px;
-    word-break: break-word;
+.details {
+  min-width: 18vw;
+  height: fit-content;
+  background-color: rgb(243, 243, 243);
+  border-radius: 5px;
+  padding: 20px;
+  font-size: larger;
+  box-shadow: none;
+  margin-top: 165px;
 }
 
-.value{
-    text-align: left;
-    padding: 10px;
-    word-break: break-word;
-    color:rgb(124, 124, 124);
+.property {
+  text-align: left;
+  padding: 10px;
+  word-break: break-word;
 }
 
-.circle{
-    display: block;
-    margin-bottom: 5%;
-    width:100%
+.value {
+  text-align: left;
+  padding: 10px;
+  word-break: break-word;
+  color: rgb(124, 124, 124);
 }
 
-.circle>p{
-    margin: 0;
-    display: flex;
-    justify-content: center;
+.circle {
+  display: block;
+  margin-bottom: 5%;
+  width: 100%;
 }
 
-
-.circleSpan{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5em;
-    width: 5em;
-    border-radius: 50%;
-    background-color: yellow;
+.circle > p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
-.circleSpan span{
-    font-size: 1.5em;
+.circleSpan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  width: 5em;
+  border-radius: 50%;
+  background-color: yellow;
 }
 
-.position{
-    color:rgb(177, 177, 177);
-    font-size: smaller;
+.circleSpan span {
+  font-size: 1.5em;
 }
 
-.edit{
-    color: white;
-    text-align: center;
-    width: 100%;
-    background-image:linear-gradient(to right,rgb(241, 125, 58),rgb(221, 94, 132));
-    padding: 10px;
-    border-radius: 5px;
+.position {
+  color: rgb(177, 177, 177);
+  font-size: smaller;
 }
 
-@media screen and (max-width:950px){
-    .details{
-        margin-top: 20px;
-    }
+.edit {
+  color: white;
+  text-align: center;
+  width: 100%;
+  background-image: linear-gradient(
+    to right,
+    rgb(241, 125, 58),
+    rgb(221, 94, 132)
+  );
+  padding: 10px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 950px) {
+  .details {
+    margin-top: 20px;
   }
+}
