@@ -90,6 +90,7 @@ button:hover {
 .contactIcon {
   display: flex;
   font-size: 2rem;
+  scale: 1.15;
   margin-top: 18px;
   color: rgb(255, 94, 0);
 }

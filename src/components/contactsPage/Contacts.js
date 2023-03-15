@@ -65,8 +65,8 @@ const Contacts = () => {
               </div>
               <div className={classes.contacts}>
                 <p>
-                  Contacts
-                  <br /> Welcome to contacts page
+                  <span style={{color:"black",fontSize:"16px"}}>Contacts</span>
+                  <br /> <span style={{color:"grey",fontSize:"12px"}}>Welcome to contacts page</span>
                 </p>
               </div>
             </div>
